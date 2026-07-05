@@ -28,6 +28,11 @@ public class FaqagentApplication {
 				System.err.println("Failed to parse DATABASE_URL: " + e.getMessage());
 			}
 		}
+		String port = System.getenv("PORT");
+		if (port != null && !port.isEmpty()) {
+			System.setProperty("server.port", port);
+		}
+		
 		SpringApplication.run(FaqagentApplication.class, args);
 	}
 
