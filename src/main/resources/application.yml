@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: faqagent
+  datasource:
+    url: jdbc:postgresql://localhost:5432/faq_agent_db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+ai:
+  deepseek:
+    api-key: ${OPENROUTER_API_KEY:your-api-key-here}
+    base-url: https://openrouter.ai/api/v1/chat/completions
+    model: deepseek/deepseek-chat
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
