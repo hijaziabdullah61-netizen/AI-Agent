@@ -28,10 +28,8 @@ public class FaqagentApplication {
 				System.err.println("Failed to parse DATABASE_URL: " + e.getMessage());
 			}
 		}
-		String port = System.getenv("PORT");
-		if (port != null && !port.isEmpty()) {
-			System.setProperty("server.port", port);
-		}
+		// Force the port to 8080 to match the user's manual Railway configuration
+		System.setProperty("server.port", "8080");
 		
 		SpringApplication.run(FaqagentApplication.class, args);
 	}
