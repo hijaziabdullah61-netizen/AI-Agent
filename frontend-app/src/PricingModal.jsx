@@ -75,13 +75,14 @@ export default function PricingModal({ onClose }) {
     <div style={{
       position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
       backgroundColor: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(10px)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      zIndex: 9999, overflowY: 'auto', padding: '2rem'
-    }}>
+      display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
+      zIndex: 9999, overflowY: 'auto', padding: '1rem',
+    }} dir="rtl">
       <div className="glass-panel" style={{
         width: '1200px', maxWidth: '100%',
-        padding: '2rem', borderRadius: '16px',
-        position: 'relative', display: 'flex', flexDirection: 'column'
+        padding: '1.5rem', borderRadius: '16px',
+        position: 'relative', display: 'flex', flexDirection: 'column',
+        margin: 'auto 0' // Ensures it stays centered if smaller than screen
       }}>
         <button onClick={onClose} style={{
           position: 'absolute', top: '1.5rem', right: '1.5rem',
@@ -107,9 +108,9 @@ export default function PricingModal({ onClose }) {
               
               {plan.badge && (
                 <span style={{
-                  position: 'absolute', top: '1.5rem', left: '1.5rem', // Left in LTR, Right in RTL. Since dir="rtl" might be applied globally, let's use standard positioning
+                  position: 'absolute', top: '1rem', left: '1rem',
                   background: 'rgba(99, 102, 241, 0.2)', color: 'var(--accent-primary)',
-                  padding: '4px 12px', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 'bold'
+                  padding: '4px 10px', borderRadius: '20px', fontSize: '0.7rem', fontWeight: 'bold'
                 }}>
                   {plan.badge}
                 </span>

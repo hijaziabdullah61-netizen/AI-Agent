@@ -498,7 +498,16 @@ export default function Chat({ isAdmin = false, openPricing }) {
                 }}
                 dir="auto"
               />
-              <button type="button" onClick={() => setShowVoiceMode(true)} style={{
+              <button type="button" onClick={() => {
+                const synth = window.speechSynthesis;
+                if (synth) {
+                  // iOS Workaround: Unlock speech synthesis synchronously on user interaction
+                  const utterance = new SpeechSynthesisUtterance('');
+                  utterance.volume = 0;
+                  synth.speak(utterance);
+                }
+                setShowVoiceMode(true);
+              }} style={{
                 position: 'absolute', right: '36px',
                 background: 'none', border: 'none', cursor: 'pointer', 
                 color: '#444', padding: '6px', borderRadius: '50%', transition: 'all 0.2s',
