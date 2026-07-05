@@ -304,7 +304,7 @@ export default function Chat({ isAdmin = false, openPricing }) {
             position: 'absolute',
             top: '20px',
             left: '20px',
-            zIndex: 10,
+            zIndex: 100,
             background: 'var(--panel-bg)',
             border: '1px solid var(--border-color)',
             color: 'var(--text-color)',
