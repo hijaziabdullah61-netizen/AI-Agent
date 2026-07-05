@@ -211,7 +211,7 @@ export default function Chat({ isAdmin = false, openPricing }) {
     <div style={{ display: 'flex', height: 'calc(100vh - 60px)', width: '100vw', marginLeft: 'calc(-50vw + 50%)', marginTop: '-1rem', position: 'relative', zIndex: 1 }}>
       
       {/* ===== Sidebar ===== */}
-      <div style={{ 
+      <div className={`chat-sidebar ${isSidebarOpen ? 'open' : 'closed'}`} style={{ 
         width: isSidebarOpen ? '260px' : '0px', 
         minWidth: isSidebarOpen ? '260px' : '0px', 
         borderRight: isSidebarOpen ? '1px solid var(--border-color)' : 'none', 
