@@ -10,9 +10,9 @@ public class FaqagentApplication {
 
 	public static void main(String[] args) {
 		String dbUrl = System.getenv("DATABASE_URL");
-		if (dbUrl != null && dbUrl.startsWith("postgres")) {
+		if (dbUrl != null && dbUrl.trim().startsWith("postgres")) {
 			try {
-				URI uri = new URI(dbUrl);
+				URI uri = new URI(dbUrl.trim());
 				if (uri.getUserInfo() != null) {
 					String[] userInfo = uri.getUserInfo().split(":");
 					System.setProperty("spring.datasource.username", userInfo[0]);
