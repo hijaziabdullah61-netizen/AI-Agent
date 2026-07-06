@@ -556,6 +556,10 @@ body::before {
   .mobile-only-close {
     display: flex !important;
   }
+  
+  .desktop-toggle-btn.sidebar-open {
+    display: none !important;
+  }
 
   /* Forms & Modals & Panels */
   .glass-panel {

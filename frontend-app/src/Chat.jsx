@@ -24,7 +24,7 @@ export default function Chat({ isAdmin = false, openPricing }) {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768)
   const [isRecording, setIsRecording] = useState(false)
   const [hoveredSession, setHoveredSession] = useState(null)
   const [sessionToDelete, setSessionToDelete] = useState(null)
@@ -225,12 +225,13 @@ export default function Chat({ isAdmin = false, openPricing }) {
         visibility: isSidebarOpen ? 'visible' : 'hidden'
       }}>
         {/* Mobile Close Button (only visible on small screens when sidebar is open) */}
-        <div className="mobile-only-close" style={{ display: 'none', justifyContent: 'flex-end', marginBottom: '10px' }}>
+        <div className="mobile-only-close" style={{ display: 'none', justifyContent: 'flex-end', marginBottom: '16px', marginRight: '4px' }}>
           <button onClick={() => setIsSidebarOpen(false)} style={{
-            background: 'var(--btn-sec-bg)', border: '1px solid var(--border-color)', color: 'var(--text-color)',
-            padding: '6px', borderRadius: '8px', cursor: 'pointer', display: 'flex'
+            background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', color: '#ef4444',
+            padding: '8px', borderRadius: '10px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
+            fontSize: '0.85rem', fontWeight: 'bold'
           }}>
-            <PanelLeftClose size={18} />
+            <PanelLeftClose size={18} /> إغلاق
           </button>
         </div>
 
@@ -311,6 +312,7 @@ export default function Chat({ isAdmin = false, openPricing }) {
         {/* Toggle Sidebar Button */}
         <button 
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className={`desktop-toggle-btn ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}
           style={{
             position: 'absolute',
             top: '20px',
