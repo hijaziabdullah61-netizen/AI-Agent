@@ -251,8 +251,8 @@ export default function Admin() {
                   <td>{conv.language}</td>
                   <td>
                     <div style={{display: 'flex', flexDirection: 'column', gap: '2px'}}>
-                      <span style={{fontWeight: '500', fontSize: '0.85rem'}}>{new Date(conv.createdAt).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'})}</span>
-                      <span style={{color: 'var(--text-muted)', fontSize: '0.75rem'}}>{new Date(conv.createdAt).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true})}</span>
+                      <span style={{fontWeight: '500', fontSize: '0.85rem'}}>{new Date(typeof conv.createdAt === 'string' && !conv.createdAt.endsWith('Z') && !conv.createdAt.includes('+') ? conv.createdAt + 'Z' : conv.createdAt).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'})}</span>
+                      <span style={{color: 'var(--text-muted)', fontSize: '0.75rem'}}>{new Date(typeof conv.createdAt === 'string' && !conv.createdAt.endsWith('Z') && !conv.createdAt.includes('+') ? conv.createdAt + 'Z' : conv.createdAt).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true})}</span>
                     </div>
                   </td>
                   <td>
@@ -293,8 +293,8 @@ export default function Admin() {
                     <td><span style={{background: 'rgba(255,255,255,0.1)', padding: '2px 8px', borderRadius: '10px'}}>{s.messageCount}</span></td>
                     <td>
                       <div style={{display: 'flex', flexDirection: 'column', gap: '2px'}}>
-                        <span style={{fontWeight: '500', fontSize: '0.85rem'}}>{new Date(s.updatedAt).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'})}</span>
-                        <span style={{color: 'var(--text-muted)', fontSize: '0.75rem'}}>{new Date(s.updatedAt).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true})}</span>
+                        <span style={{fontWeight: '500', fontSize: '0.85rem'}}>{new Date(typeof s.updatedAt === 'string' && !s.updatedAt.endsWith('Z') && !s.updatedAt.includes('+') ? s.updatedAt + 'Z' : s.updatedAt).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'})}</span>
+                        <span style={{color: 'var(--text-muted)', fontSize: '0.75rem'}}>{new Date(typeof s.updatedAt === 'string' && !s.updatedAt.endsWith('Z') && !s.updatedAt.includes('+') ? s.updatedAt + 'Z' : s.updatedAt).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true})}</span>
                       </div>
                     </td>
                     <td>
