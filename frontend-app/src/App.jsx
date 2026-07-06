@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Bot, LogOut, Sun, Moon } from 'lucide-react'
+import { Bot, LogOut, Sun, Moon, BrainCircuit } from 'lucide-react'
 import { BrowserRouter as Router, Routes, Route, Navigate, Link, useNavigate, useLocation } from 'react-router-dom'
 import Chat from './Chat'
 import Admin from './Admin'
@@ -45,8 +45,24 @@ function AppContent() {
     <>
       <nav className="navbar">
         <Link to="/" style={{textDecoration: 'none', color: 'inherit'}} className="flex items-center gap-2">
-          <Bot size={32} color="var(--text-color)" />
-          <h2>Support AI</h2>
+          <div style={{
+            background: 'linear-gradient(135deg, var(--accent-primary), #a855f7)',
+            padding: '6px',
+            borderRadius: '10px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 12px rgba(99, 102, 241, 0.3)'
+          }}>
+            <BrainCircuit size={24} color="white" strokeWidth={2.5} />
+          </div>
+          <h2 style={{
+            background: 'linear-gradient(135deg, var(--text-color), #a855f7)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            fontWeight: 'bold',
+            letterSpacing: '-0.5px'
+          }}>Hijazi AI</h2>
         </Link>
         <div className="nav-links" style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
           <button 
