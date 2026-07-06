@@ -13,7 +13,7 @@ export default function Chat({ isAdmin = false, openPricing }) {
   const generateId = () => `${role}-session-${Date.now()}-${Math.floor(Math.random() * 1000)}`
 
   const [currentSessionId, setCurrentSessionId] = useState(() => {
-    return localStorage.getItem(activeKey) || generateId()
+    return generateId()
   })
   
   const [savedSessions, setSavedSessions] = useState(() => {
@@ -209,6 +209,7 @@ export default function Chat({ isAdmin = false, openPricing }) {
 
   return (
     <div style={{ display: 'flex', height: 'calc(100vh - 60px)', width: '100vw', marginLeft: 'calc(-50vw + 50%)', marginTop: '-1rem', position: 'relative', zIndex: 1 }}>
+
       
       {/* ===== Sidebar ===== */}
       <div className={`chat-sidebar ${isSidebarOpen ? 'open' : 'closed'}`} style={{ 
@@ -223,6 +224,16 @@ export default function Chat({ isAdmin = false, openPricing }) {
         opacity: isSidebarOpen ? 1 : 0,
         visibility: isSidebarOpen ? 'visible' : 'hidden'
       }}>
+        {/* Mobile Close Button (only visible on small screens when sidebar is open) */}
+        <div className="mobile-only-close" style={{ display: 'none', justifyContent: 'flex-end', marginBottom: '10px' }}>
+          <button onClick={() => setIsSidebarOpen(false)} style={{
+            background: 'var(--btn-sec-bg)', border: '1px solid var(--border-color)', color: 'var(--text-color)',
+            padding: '6px', borderRadius: '8px', cursor: 'pointer', display: 'flex'
+          }}>
+            <PanelLeftClose size={18} />
+          </button>
+        </div>
+
         {/* New Chat Button */}
         <button onClick={startNewChat} style={{
           width: 'calc(100% - 4px)', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px',

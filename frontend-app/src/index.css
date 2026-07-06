@@ -552,6 +552,10 @@ body::before {
     width: 280px !important;
     min-width: 280px !important;
   }
+  
+  .mobile-only-close {
+    display: flex !important;
+  }
 
   /* Forms & Modals & Panels */
   .glass-panel {
